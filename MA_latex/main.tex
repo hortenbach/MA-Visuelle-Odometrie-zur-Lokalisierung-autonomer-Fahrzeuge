@@ -1,0 +1,120 @@
+% !TEX program = xelatex
+\documentclass[12pt, a4paper, oneside]{book}
+%\documentclass[11pt, a4paper, oneside]{book}
+%% Übersetzen als Entwurf
+% \usepackage[entwurf]{bhtThesis}
+%% Übersetzen für die Abgabe
+\usepackage[abgabe]{bhtThesis}
+\typeout{BHT-Abschlussarbeit V2.0 26.08.21 S.Tschirley}
+
+\usepackage{blindtext}   %für Blindtext in Kapitel 2
+\usepackage{listings}
+\lstset{ 
+  literate={ö}{{\"o}}1
+           {ä}{{\"a}}1
+           {ü}{{\"u}}1
+           {Ö}{{\"O}}1
+           {Ä}{{\"A}}1
+           {Ü}{{\"U}}1
+           {ß}{{\ss}}1
+}
+%%\usepackage{hyperref}
+% \usepackage[demo]{graphicx}
+% \usepackage[section]{placeins}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathstuff
+\usepackage{caption}
+\DeclareCaptionType{equ}[][]
+\usepackage{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tablestuff
+\usepackage{booktabs}
+\usepackage{multirow}
+% \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\usepackage{color, colortbl}
+\definecolor{LightGray}{gray}{0.9}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{subcaption}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+%Loading xcolor with dvipsnames
+%\usepackage[dvipsnames]{xcolor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibtex show urls
+%\usepackage{url}
+\usepackage{hyperref} 
+% \usepackage[backend=biber,sorting=ynt]{biblatex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{trsym}
+%\usepackage{showkeys}
+\usepackage{bytefield}
+
+\graphicspath{
+  {pictures/}
+}
+
+\version{0.1$\alpha$}    % word im Entwurf auf der Titelseite vermerkt
+\datum{\today}
+%%
+%% Titel, Autor und Betreuer
+%%
+\fachbereich{VI -- Informatik und Medien -- Technische Informatik} 
+\studiengang{Technische Informatik - Embedded Systems}
+\autor{Gina Hortenbach}
+\edvnr{897854}
+\titel{Visuelle Odometrie zur Lokalisierung autonomer Fahrzeuge}
+% \untertitel{Teil des CARS Forschungsprojekts}
+\betreuerFeld{
+  \begin{tabular}{lr}
+    \multicolumn{2}{l}{\textbf{Gutachter}}\\
+    Prof.~Dr.-Ing. V. Sommer & Berliner Hochschule für Technik\\
+    Prof.~Dr.-Ing. H. Höfig & Berliner Hochschule für Technik
+  \end{tabular}
+}
+
+% Remove "chapter x"
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\huge\bf}{\thechapter.}{20pt}{\huge\bf}
+%%\renewcommand{\baselinestretch}{1.05} 
+
+\usepackage{enumitem}
+
+
+\begin{document}
+\pagestyle{fancy}
+
+\input{titelseiten.tex}
+\newpage\clearpage
+
+%%\setlist[description]{font=\normalfont\itshape\bold\space}
+
+\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Die Kapitel der Arbeit
+\include{abstract_de.tex}
+\include{abstract_en.tex}
+
+\input{01_Einleitung.tex}
+\input{02_Grundlagen.tex}
+\input{03_Merkmale.tex}
+\input{04_Kamerasysteme.tex}
+\input{05_Systementwurf.tex}
+\input{06_Implementierung.tex}
+\input{07_Ergebnisse.tex}
+
+% \begin{appendix}
+%   \input{anhang.tex}
+% \end{appendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Literaturverzeichnis
+
+\clearpage\newpage
+\addcontentsline{toc}{chapter}{Literatur- und Quellenverzeichnis}
+\bibliographystyle{unsrt}
+%\bibliographystyle{myapalike}
+\bibliography{bhtThesis}
+
+\end{document}

@@ -1,0 +1,64 @@
+\BOOKMARK [0][-]{chapter.1}{Einleitung}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Motivation\040-\040Forschungsprojekt\040CARS}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Ziel\040der\040Arbeit}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Grundlagen}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Lokalisierungsverfahren}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.1.1}{Globale\040Lokalisierung}{section.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.1.2}{Position\040Tracking}{section.2.1}% 7
+\BOOKMARK [1][-]{section.2.2}{3-D\040Strukturen\040und\040Kamerapose\040aus\0402-D\040Bildern}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.2.1}{Koordinatensysteme}{section.2.2}% 9
+\BOOKMARK [2][-]{subsection.2.2.2}{Korrespondenzanalyse}{section.2.2}% 10
+\BOOKMARK [2][-]{subsection.2.2.3}{Verbinden\040von\040zwei\040Ansichten\040durch\040Epipolargeometrie}{section.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.4}{Sonderfall\040Stereo\040Vision}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.5}{Structure\040From\040Motion\040-\040SfM}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.6}{Simultaneous\040Localization\040and\040Mapping\040-\040SLAM}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.7}{Verschiedene Ansätze für Visuelle Odometrie}{section.2.2}% 15
+\BOOKMARK [0][-]{chapter.3}{Extraktion\040von\040Bildmerkmalen}{}% 16
+\BOOKMARK [1][-]{section.3.1}{Auffinden\040von\040Merkmalen}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.1.1}{Merkmale\040Beschreiben\040durch\040Nachbarschaftsoperationen}{section.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.2}{Algorithmen\040zum\040Auffinden\040von\040Interest-Operatoren}{section.3.1}% 19
+\BOOKMARK [1][-]{section.3.2}{Matching}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.2.1}{Übereinstimmungen finden}{section.3.2}% 21
+\BOOKMARK [2][-]{subsection.3.2.2}{Matching\040Ergebnisse\040Filtern}{section.3.2}% 22
+\BOOKMARK [2][-]{subsection.3.2.3}{Stereo\040Matching}{section.3.2}% 23
+\BOOKMARK [2][-]{subsection.3.2.4}{Semi\040Global\040Block\040Matching}{section.3.2}% 24
+\BOOKMARK [1][-]{section.3.3}{Deskriptoren}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.3.1}{Histogram\040Deskriptoren}{section.3.3}% 26
+\BOOKMARK [2][-]{subsection.3.3.2}{Binäre Deskriptoren}{section.3.3}% 27
+\BOOKMARK [2][-]{subsection.3.3.3}{ORB\040-\040Oriented\040FAST\040and\040Rotated\040BRIEF}{section.3.3}% 28
+\BOOKMARK [0][-]{chapter.4}{Kamerasysteme}{}% 29
+\BOOKMARK [1][-]{section.4.1}{Kamerasensoren}{chapter.4}% 30
+\BOOKMARK [2][-]{subsection.4.1.1}{RGB\040Kamera\040mit\040CCD-\040oder\040CMOS-Sensoren}{section.4.1}% 31
+\BOOKMARK [2][-]{subsection.4.1.2}{Tiefenbildkameras\040auf\040Basis\040von\040Projektionen}{section.4.1}% 32
+\BOOKMARK [2][-]{subsection.4.1.3}{Tiefenbildkameras\040auf\040Basis\040von\040Stereoskopie}{section.4.1}% 33
+\BOOKMARK [2][-]{subsection.4.1.4}{Time-of-Flight\040Tiefenbild}{section.4.1}% 34
+\BOOKMARK [1][-]{section.4.2}{Kamerakonfigurationen}{chapter.4}% 35
+\BOOKMARK [2][-]{subsection.4.2.1}{Monokulare\040Kamerasysteme}{section.4.2}% 36
+\BOOKMARK [2][-]{subsection.4.2.2}{Stereo\040Kamerasysteme}{section.4.2}% 37
+\BOOKMARK [2][-]{subsection.4.2.3}{RGB\040mit\040Tiefenbildkamera}{section.4.2}% 38
+\BOOKMARK [2][-]{subsection.4.2.4}{Rektifizierung}{section.4.2}% 39
+\BOOKMARK [0][-]{chapter.5}{Systementwurf}{}% 40
+\BOOKMARK [1][-]{section.5.1}{Erzeugen\040von\040Sensoroutput}{chapter.5}% 41
+\BOOKMARK [2][-]{subsection.5.1.1}{Kameradaten}{section.5.1}% 42
+\BOOKMARK [2][-]{subsection.5.1.2}{Node für Kamerasynchronisation}{section.5.1}% 43
+\BOOKMARK [1][-]{section.5.2}{Stereo\040Visuelle\040Odometrie\040Ablauf}{chapter.5}% 44
+\BOOKMARK [2][-]{subsection.5.2.1}{Merkmalsdetektion}{section.5.2}% 45
+\BOOKMARK [2][-]{subsection.5.2.2}{Matching\040von\040Merkmalen}{section.5.2}% 46
+\BOOKMARK [2][-]{subsection.5.2.3}{Tiefeninformation}{section.5.2}% 47
+\BOOKMARK [2][-]{subsection.5.2.4}{Bewegungsschätzung}{section.5.2}% 48
+\BOOKMARK [2][-]{subsection.5.2.5}{Pose\040Update\040und\040Verlorene\040Odometrie}{section.5.2}% 49
+\BOOKMARK [0][-]{chapter.6}{Implementierung}{}% 50
+\BOOKMARK [1][-]{section.6.1}{Simulationsumgebung}{chapter.6}% 51
+\BOOKMARK [2][-]{subsection.6.1.1}{Simulator\040CARLA}{section.6.1}% 52
+\BOOKMARK [2][-]{subsection.6.1.2}{ROS2 Framework für Prozesskommunikation}{section.6.1}% 53
+\BOOKMARK [2][-]{subsection.6.1.3}{Kameradaten}{section.6.1}% 54
+\BOOKMARK [2][-]{subsection.6.1.4}{Transformationsbaum}{section.6.1}% 55
+\BOOKMARK [1][-]{section.6.2}{Bibliotheken}{chapter.6}% 56
+\BOOKMARK [2][-]{subsection.6.2.1}{Computer\040Vision\040Bibliothek\040OpenCV}{section.6.2}% 57
+\BOOKMARK [2][-]{subsection.6.2.2}{V-SLAM\040Bibliothek\040RTAB-Map}{section.6.2}% 58
+\BOOKMARK [0][-]{chapter.7}{Ergebnisse\040der\040Lokalisierung}{}% 59
+\BOOKMARK [1][-]{section.7.1}{Methodik}{chapter.7}% 60
+\BOOKMARK [1][-]{section.7.2}{Ergebnisse}{chapter.7}% 61
+\BOOKMARK [1][-]{section.7.3}{Diskussion}{chapter.7}% 62
+\BOOKMARK [1][-]{section.7.4}{Ausblick}{chapter.7}% 63
+\BOOKMARK [0][-]{section.7.4}{Literatur-\040und\040Quellenverzeichnis}{}% 64

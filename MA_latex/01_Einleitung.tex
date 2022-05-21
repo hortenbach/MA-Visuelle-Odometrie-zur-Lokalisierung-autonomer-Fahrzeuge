@@ -1,0 +1,19 @@
+\chapter{Einleitung}
+\section{Motivation - Forschungsprojekt CARS}
+Die vorliegende Abschlussarbeit ist im Rahmen des "Cooperative Autonomy based on Reliable Services"  (CARS) Forschungsprojekts entstanden. CARS ist ein von der IFAF Gefördertes Projekt unter der Leitung von Prof. Dr.-Ing. Carsten Thomas (HTW Berlin) und Prof. Dr.-Ing. Volker Sommer (BHT). Der Forschungsschwerpunkt liegt auf der Erhöhung der Sicherheit hochautonomen Fahrens. Als Ansatz werden hierfür Verfahren für die Fahrzeug-zu-Fahrzeug Kommunikation erforscht.
+\newline 
+
+Die Fahrzeuge sollen gegenseitig interne und externe Zuständen austauschen. Dadurch soll ein umfangreiches und zuverlässiges Situationsbewusstsein der einzelnen Systeme erreicht werden. 
+\newline 
+
+Die Lokalisierung durch Visuelle Odometrie kann die Position und Orientierung eines Fahrzeugs schätzen. Aus dieser Information ergibt sich auch die Trajektorie. Neben dem Austausch mit anderen Systemen, könne die Daten intern genutzt werden. Beispielsweise kann Visuelle Odometrie das  Front-End für Simultaneous Localization And Mapping (SLAM) stellen.
+
+\section{Ziel der Arbeit}
+Im Rahmen der Abschlussarbeit soll ein System implementiert werden, dass mittels Visueller Odometrie die Position und Orientierung (Pose) eines Fahrzeugs schätzt. Die Implementierung soll sich mit dem CARLA Simulator nutzen lassen und Odometriedaten innerhalb eines ROS2 Netzwerks zur Verfügung stellen können.
+
+Die Schätzung der Pose soll ausschlie{\ss}lich auf Kameradaten basieren, es wird nicht auf andere Umgebungsdaten des Simulators zugegriffen. 
+
+Für eine Software Implementierung sollen zwei Kamera-Setups verglichen werden; ein Stereokamera Aufbau mit zwei RGB Kamerasensoren und ein RGB-D Setup bestehend aus einer RGB und ToF Kamera.
+%%
+% \section{Stand der Technik und Verwandte Arbeiten}
+ 

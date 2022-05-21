@@ -1,0 +1,196 @@
+\begin{thebibliography}{10}
+
+\bibitem{locFox}
+D.~Fox.
+\newblock Introduction.
+\newblock
+  \url{https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume11/fox99a-html/node1.html}
+  (accessed: 16.01.2022), 1999.
+
+\bibitem{ScFrVO}
+Fraundorfer~F. Scaramuzza~D.
+\newblock Visual odometry [tutorial].
+\newblock {\em IEEE Robot. Automat. Mag.}, 18, 2011.
+
+\bibitem{Hartley:MVG}
+Zisserman~A. Hartley~R.
+\newblock {\em Multiple View Geometry in Computer Vision}.
+\newblock Cambridge University Press, 2003.
+
+\bibitem{stereoSchreer}
+O.~Schreer.
+\newblock {\em Stereoanalyse und Bildsynthese}.
+\newblock Spinger Verlag Berlin Heidelberg, 2005.
+
+\bibitem{LonguetHiggins1981ACA}
+H.~Longuet-Higgins.
+\newblock A computer algorithm for reconstructing a scene from two projections.
+\newblock {\em Nature}, 293, 1981.
+
+\bibitem{RomeDay}
+A.~et~al. Agarwal.
+\newblock Building rome in a day.
+\newblock {\em 2009 IEEE 12th International Conference on Computer Vision},
+  2009.
+
+\bibitem{yang2018dvso}
+Yang~N. et~al.
+\newblock Deep virtual stereo odometry: Leveraging deep depth prediction for
+  monocular direct sparse odometry.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, September
+  2018.
+
+\bibitem{Harris88alvey.Ha}
+Stephens~M. Harris~C.
+\newblock A combined corner and edge detector, 1988.
+
+\bibitem{FAST}
+Rosten~E. et~al.
+\newblock Faster and better: A machine learning approach to corner detection.
+\newblock {\em Transactions on Pattern Analysis and Machine Intelligence}, 32,
+  2010.
+
+\bibitem{cvdocFAST}
+OpenCV Documenation.
+\newblock Fast algorithm for corner detection.
+\newblock \url{https://docs.opencv.org/4.x/df/d0c/tutorial_py_fast.html}
+  (accessed: 08.05.2022).
+
+\bibitem{Lowe04distinctiveimage}
+D.~Lowe.
+\newblock Distinctive image features from scale-invariant keypoints.
+\newblock {\em International Journal of Computer Vision}, 60, 2004.
+
+\bibitem{SIFT}
+D.~Lowe.
+\newblock Object recognition from local scale-invariant features.
+\newblock {\em The proceedings of the seventh IEEE international conference on
+  Computer Vision}, 2, 1999.
+
+\bibitem{SURF}
+Bay~H. et~al.
+\newblock {SURF: Speeded up robust features}.
+\newblock {\em Computer Vision-ECCV}, 2, 2006.
+
+\bibitem{binDesc}
+Frahm J.-M. Heinly~J.
+\newblock {\em Comparative Evaluation of Binary Features}.
+\newblock University of North Carolina, 2012.
+
+\bibitem{BRIEF}
+Calonder~M. et~al.
+\newblock Brief: Binary robust independent elementary features.
+\newblock {\em Computer Vision-ECCV}, 2010.
+
+\bibitem{ORB}
+Rublee~E. et~al.
+\newblock Orb: an efficient alternative to sift or surf.
+\newblock {\em IEEE International Conference on. IEEE Computer Vision (ICCV)},
+  2011.
+
+\bibitem{BRISK}
+et.~al. Leutenegger~S.
+\newblock Brisk: Binary robust invariant scalable keypoints.
+\newblock {\em IEEE International Conference on. IEEE Computer Vision (ICCV)},
+  2011.
+
+\bibitem{Rosin1999MeasuringCP}
+P.~Rosin.
+\newblock Measuring corner properties.
+\newblock {\em Comput. Vis. Image Underst.}, 73, 1999.
+
+\bibitem{Merolini.IMG}
+S.~Merolini.
+\newblock Active pixel sensor vs ccd. who is the clear winner?
+\newblock
+  \url{https://meroli.web.cern.ch/lecture_cmos_vs_ccd_pixel_sensor.html}
+  (accessed: 02.05.2022).
+
+\bibitem{Wikimedia}
+Gargan.
+\newblock Wikimedia commons.
+\newblock
+  \url{https://commons.wikimedia.org/wiki/File:Aps_pd_pixel_schematic.svg}
+  (accessed: 02.05.2022).
+
+\bibitem{realsense}
+Intel.
+\newblock Intel realsensetm product family d400 series datasheet.
+\newblock
+  \url{https://www.intelrealsense.com/wp-content/uploads/2020/06/Intel-RealSense-D400-Series-Datasheet-June-2020.pdf}
+  (accessed: 24.04.2022).
+
+\bibitem{mulVO_2019}
+Liu~P. et~al.
+\newblock Towards robust visual odometry with a multi-camera system.
+\newblock In {\em 2018 IEEE/RSJ International Conference on Intelligent Robots
+  and Systems (IROS)}, 2018.
+
+\bibitem{Mhiri_2014}
+Mhiri~R. et~al.
+\newblock Visual odometry with unsynchronized multi-cameras setup for
+  intelligent vehicle application.
+\newblock In {\em 2014 IEEE Intelligent Vehicles Symposium Proceedings}, 2014.
+
+\bibitem{rgbd}
+Eckstein.
+\newblock Vzense dcam710 tof rgbd long range depth camera module.
+\newblock
+  \url{https://eckstein-shop.de/Vzense-DCAM710-TOF-RGBD-Long-Range-Depth-Camera-Module-EN}
+  (accessed: 01.05.2022).
+
+\bibitem{Mouats.PerfD}
+Mouats~T. et~al.
+\newblock Performance evaluation of feature detectors and descriptors beyond
+  the visible.
+\newblock {\em Journal of Intelligent and Robotic Systems}, 92, 2018.
+
+\bibitem{cvdocMatch}
+OpenCV Documentation.
+\newblock Feature matching - basics of brute force matcher.
+\newblock
+  \url{https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_matcher/py_matcher.html}
+  (accessed: 18.03.2022).
+
+\bibitem{Hirsch.SGBM}
+H.~Hirschmuller.
+\newblock Stereo processing by semiglobal matching and mutual information.
+\newblock {\em Transactions on Pattern Analysis and Machine Intelligence,
+  IEEE}, 30, 2008.
+
+\bibitem{Dosovitskiy17}
+A.~et~al. Dosovitskiy.
+\newblock {CARLA}: {An} open urban driving simulator.
+\newblock In {\em Proceedings of the 1st Annual Conference on Robot Learning},
+  2017.
+
+\bibitem{cvmatlab}
+Yousef~W. Elsayed~A.
+\newblock Matlab vs. opencv: A comparative study of different machine learning
+  algorithms, 2019.
+
+\bibitem{labbe}
+Michaud~F. Labbé~M.
+\newblock {RTAB-Map as an open-source lidar and visual simultaneous
+  localization and mapping library for large-scale and long-term online
+  operation}, 2018.
+
+\bibitem{zhangSLAM}
+Scaramuzza~D. Zhang~Z.
+\newblock Rethinking trajectory evaluation for slam: a probabilistic,
+  continuous-time approach, 2019.
+
+\bibitem{errorEst}
+Scaramuzza~D. Zhang~Z.
+\newblock A tutorial on quantitative trajectory evaluation for
+  visual(-inertial) odometry.
+\newblock In {\em 2018 IEEE/RSJ International Conference on Intelligent Robots
+  and Systems (IROS)}, 2018.
+
+\bibitem{Umeyama1991LeastSquaresEO}
+S.~Umeyama.
+\newblock Least-squares estimation of transformation parameters between two
+  point patterns.
+\newblock {\em IEEE Trans. Pattern Anal. Mach. Intell.}, 13, 1991.
+
+\end{thebibliography}

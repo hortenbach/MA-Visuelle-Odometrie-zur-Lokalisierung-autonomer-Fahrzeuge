@@ -1,0 +1,61 @@
+Datasets:
+  sunset_01:
+    label: sunset_01
+  sunset_02:
+    label: sunset_02
+  sunset_03:
+    label: sunset_03
+  sunset_04:
+    label: sunset_04
+  sunset_05:
+    label: sunset_05
+  clear_night_01:
+    label: clear_night_01
+  clear_night_02:
+    label: clear_night_02
+  clear_night_03:
+    label: clear_night_03
+  clear_night_04:
+    label: clear_night_04
+  clear_night_05:
+    label: clear_night_05
+  default_01:
+    label: default_01
+  default_02:
+    label: default_02
+  default_03:
+    label: default_03
+  default_04:
+    label: default_04
+  default_05:
+    label: default_05
+  hard_rain_01:
+    label: hard_rain_01
+  hard_rain_02:
+    label: hard_rain_02
+  hard_rain_03:
+    label: hard_rain_03
+  hard_rain_04:
+    label: hard_rain_04
+  hard_rain_05:
+    label: hard_rain_05
+  wet_sunrise_01:
+    label: wet_sunrise_01
+  wet_sunrise_02:
+    label: wet_sunrise_02
+  wet_sunrise_03:
+    label: wet_sunrise_03
+  wet_sunrise_04:
+    label: wet_sunrise_04
+  wet_sunrise_05:
+    label: wet_sunrise_05
+
+Algorithms:
+  vo_stereo:
+    fn: traj_est
+    label: stereo
+  vo_rgbd:
+    fn: traj_est
+    label: rgbd
+RelDistances: []
+RelDistancesPercentages: []

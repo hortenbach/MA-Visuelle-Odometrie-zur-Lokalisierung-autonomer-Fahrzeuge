@@ -1,0 +1,56 @@
+
+  \begin{table}
+    \centering
+      \begin{tabular}{r|r|r|r|r|r}
+        \toprule % <-- Toprule here
+        \multicolumn{6}{c}{RMSE der Rotation in $deg/m$} \\
+        \midrule % <-- Midrule here
+        \phantom{abc} & Default & rain& clear sunset & night & wet sunset\\
+        \midrule % <-- Midrule here
+        (1) Stereo & 2.7334 & 14.5396 & 4.7107 & 29.6143& 8.2440\\
+        \rowcolor{LightGray}
+        (1) RGBD & 2.2146 & 8.0921 & 6.1959 & 12.1838& 1.8756\\
+        (2) Stereo & 4.5297 & 7.6523 & 2.2452 & 20.4506& 8.5746\\
+        \rowcolor{LightGray}
+        (2) RGBD & 2.5232 & 1.7378 & 3.0055 & 3.3728& 6.8255\\
+        (3) Stereo & 3.0501 & 6.7407 & 2.7294 & 52.7385& 2.1195\\
+        \rowcolor{LightGray}
+        (3) RGBD & 1.2257 & 2.0066 &  1.9411 & 48.2168& 1.8383\\
+        (4) Stereo & 2.9097 & 6.4370 & 1.9908 & 58.5951& 3.0643\\
+        \rowcolor{LightGray}
+        (4) RGBD & 2.1487 & 3.6022 & 2.0612 & 17.2936&2.5188\\
+        (5) Stereo & 19.5840 &  9.9986 & 4.2870 & 168.5980& 2.0029\\
+        \rowcolor{LightGray}
+        (5) RGBD & 3.2175 & 2.4937 & 2.6455 & 51.9567& 2.8930\\	
+        \bottomrule % <-- Bottomrule here
+      \end{tabular}
+    \caption{RMSE der Rotation}
+  \end{table} 	
+  \begin{table}
+    \centering
+      \begin{tabular}{r|r|r|r|r|r}
+        \toprule % <-- Toprule here
+        \multicolumn{6}{c}{RMSE der Translation in $\%$} \\
+        \midrule % <-- Midrule here
+        \phantom{abc} & Default & rain& clear sunset & night & wet sunset\\
+        \midrule % <-- Midrule here
+        (1) Stereo & 2.7093 & 66.6148 & 10.7996 & 44.9045&  22.2712\\
+        \rowcolor{LightGray}
+        (1) RGBD & 2.1084 & 26.8571 &11.1097 & 22.5937& 1.8512\\
+        (2) Stereo & 2.6822 & 16.9418 & 1.1682 & 24.9654& 9.4863\\
+        \rowcolor{LightGray}
+        (2) RGBD &  2.1633 & 2.0260 & 1.2843 & 2.5186& 7.5126\\
+        (3) Stereo & 8.0751 & 26.6375 & 4.6390 & 86.9499& 1.2902\\
+        \rowcolor{LightGray}
+        (3) RGBD & 1.9449 & 2.0570 & 3.76853 & 75.9970& 1.1535\\
+  
+        (4) Stereo & 12.2844 & 14.1325 &  0.5691 & 21.3222& 0.6728\\
+        \rowcolor{LightGray}
+        (4) RGBD & 2.6251 & 1.6480 & 0.4805 & 17.5666& 0.5251\\
+        (5) Stereo & 28.2357 & 18.8744 & 9.7872 & 91.4595& 1.2994\\
+        \rowcolor{LightGray}
+        (5) RGBD & 5.5522 & 2.4321 & 7.2941 & 83.7440&  2.7893\\	
+        \bottomrule % <-- Bottomrule here
+      \end{tabular}
+    \caption{RMSE der Translation}
+  \end{table} 	

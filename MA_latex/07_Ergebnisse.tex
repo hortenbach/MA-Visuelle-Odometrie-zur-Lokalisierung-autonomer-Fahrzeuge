@@ -1,0 +1,200 @@
+\chapter{Ergebnisse der Lokalisierung}
+\section{Methodik}
+\begin{figure}{!ht}
+	\centering
+	\includegraphics[width=0.45\textwidth]{07_Town03.jpg}
+	\caption[CARLA Simulator Karte Town03]{CARLA Simulator Karte Town03. (CARLA Dokumentation, 2022)}
+\end{figure}
+
+Für die Datenerhebung wurde im CARLA Simulator die Umgebung 'Town03' ausgewählt. Die CARLA Dokumentation beschreibt Town03 als abwechslungsreichste und komplexeste Karte des Simulators. Town03 beinhaltet eine gro{\ss}e Kreuzung, Erhebungen, Kreisverkehr und einen Tunnel.
+\newline
+
+Es wurden Daten für 5 unterschiedliche Witterungsverhältnisse erhoben: sunset, clear night, default, hard rain, wet sunrise. Die Witterungsverhältnisse wurden über CARLAs Python API gesetzt.
+\newline 
+
+Für jedes Witterungsverhältnis wurden 5 Testfahrten aufgezeichnet. Die Testfahrten sind zufällige Strecken. Au{\ss}erdem wurden für alle Fahrten 50 NPCs auf der Karte gespawnt. NPC beinhalten andere Fahrzeuge sowie Fu{\ss}gänger. Die Geschwindigkeit des Testfahrzeugs variiert zwischen 30 und 100 $\frac{km}{h}$, je nach Streckenabschnitt.
+\newline
+
+Bei jeder Testfahrt waren die Stereokamera und die RGB-D Kamera am Fahrzeug angebracht, das Bild der linken RGB Kamera wurde in beiden verwendet. Die ROS Nodes für beide Visuellen Odometrie Programme laufen bei allen Fahrten live mit und alle Ausgangsdaten wurden über das ROS Werkzeug rosbag in eine sql3 Datenbank geschrieben.
+\newline
+
+Ein Verarbeitunsgtool 'BagParser' wurde geschrieben um Daten aus den rosbag Datenbanken zu extrahieren und in .txt Dateien, OpenCV Matritzen oder Quarternion formatierte .txt Dateien abzulegen. 
+\newline
+
+Die Bewertung von geschätzten Trajektorien bringt einige Herausforderungen mit sich. 
+
+Zum einen referenzieren Ground Truth und die Schätzung unterschiedliche Koordinatensysteme. Ground Truth referenziert das Fahrzeugkoordinatensystem währen die VO Schätzung das Koordinatensystem der linken Kamera referenziert. Die Positionen müssen also zuerst aneinander angeglichen werden, bevor ein Vergleich durchgeführt werden kann. 
+\newline
+
+Ein anderes Problem ist die Fehlerfortpflanzung. Es kann sein, dass an einer Stelle ein Winkel mit gro{\ss}er Abweichung zu Ground Truth geschätzt wurde. Folgende Schätzungen sind vielleicht mit wesentlich kleineren Fehlern behaftet, zeigen im absoluten Vergleich aber noch den vorherigen Fehler. 
+
+Es handelt sich bei den Daten au{\ss}erdem um hochdimensionale Datensätze; die Anzahl der Merkmale ist höher als die Anzahl der Beobachtungen.
+\newline
+
+Um mit diesen Herausforderungen umzugehen wurden die Daten basierend auf dem Paper \textit{Rethinking Trajectory Evaluation for SLAM: a Probabilistic, Continuous-Time Approach}\cite{zhangSLAM} und der Trajectory Evaluation Toolbox aus \textit{A Tutorial on Quantitative Trajectory Evaluation for Visual(-Inertial) Odometry} \cite{errorEst} bewertet.
+\newline
+
+Voraussetzung für eine Evaluation ist zuerst die gleiche Ausrichtung der geschätzten Trajektorien mit Ground Truth. Die beiden sind durch eine euklidische Transformation im 3 Dimensionalen Raum miteinander verbunden. Die Transformationen bestehen aus Rotation und Translation und werden Formal als Spezielle Euklidische Transformation SE(3) bezeichnet. Anstatt mit Rotationsmatritzen zu rechnen werden für die Auswertung mit rotations Quaternionen gerechnet. Quaternionen sind ein eigener Zahlenbereich und eine Erweiterung des Zahlenbereichs der reellen Zahlen. Als Vorbereitung der Auswertung müssen die Trajektorien daher als Messreihe von 7-Dimensionalen Vektoren abgelegt werden 
+\begin{equation}
+	\centering
+		X_i = (x\; y\; z\; q_w\; q_x\; q_y\; q_z)^\top 
+\end{equation}
+
+Die Ausrichtung wird durch eine Methode der Kleinsten Quadrate Implementation für zwei Punktmengen nach Umeyama \cite{Umeyama1991LeastSquaresEO} gelöst.
+
+\begin{equation}
+	\centering
+	\underset{R,T,s}{\arg\min} \sum_{i = 0}^{N} \| \hat{t}_i -sR_{ti} -T \|^2   
+\end{equation}
+
+Mit Ground Truth Posen als $\hat{t}$ und Schätzung durch Visuelle Odometrie als $s$. 
+\newline
+
+In der Auswertung werden für jede Strecke der absolute Streckenfehler ATE (Absolute Trajectory Error) und der relative Fehler (RE) berechnet. Ground Truth sei $X_{gt}$ und die, bereits ausgerichtete, geschätzt Trajektorie sei $\hat{X}'$. Die Trajektorie ist der zeitlicher Verlauf der Zustände der VO Schätzung. Für einen einzelnen Zustand wird der Fehler zwischen $\hat{x}'_i$ und Ground Truth $x_i$ definiert als  
+\begin{equation}
+	\Delta x_i = \{\Delta R_i, \Delta p_i\}
+\end{equation}
+für die gilt
+\begin{equation*}
+	R_i = \Delta R_i \hat{R}'_i,\:
+	p_i = \Delta R_i \hat{p}'_i	
+\end{equation*}
+
+mit der Rotationsmatrix $R$ und der Position $p$. Dadurch errechnet sich der absolute Fehler zu 
+
+\begin{align}
+	\Delta R_i &= R_i (\hat{R}'_i)^\top,\\
+	\Delta p_i &= p_i - \Delta R_i \hat{p}'_i
+	\label{eq:absoluteErr}
+\end{align}
+
+Nun kann, um den die Qualität der Gesamtstrecke zu quantifizieren, die Quadratwurzel des mittleren quadratischen Fehlers (root mean square error (RMSE)) gebildet werden
+\begin{align}
+	ATE_{rot} &= (\frac{1}{N} \sum_{i = 0}^{N-1} \|\angle (\Delta R_i)  \|^2 )^\frac{1}{2},\\
+	ATE_{pos} &= (\frac{1}{N} \sum_{i = 0}^{N-1} \| (\Delta p_i)  \|^2 )^\frac{1}{2}
+\end{align}
+
+wobei $\angle(\cdot)$ für die Konvertierung der Schreibweise von Matrixform zu Euler-Winkel.
+\newline
+\newline
+
+Zusätzlich wird der relative Fehler berechnet. Der von Zhang et al. \cite{errorEst} vorgeschlagene Ansatz ist, die relative Beziehung zwischen den Zuständen zu verschiedenen Zeiten zu messen. Das gemeinsame Kriterium der Zustände ist die zurückgelegte Distanz. Es wird also die Gesamtstrecke und die Schätzung der Gesamten Stecke in Teilstrecken $s$ und $e$ für den Abschnitt $\mathfrak{F}$ zerlegt. 
+\newline
+
+Für jeden Teilabschnitt werden aus den Messwerten Gruppen mit $K$ Zustandspaaren zusammengefasst. Die Menge der Paare $d_k$ bilden jeweils eine Trajektorie für den Streckenabschnitt $\mathfrak{F}$. 
+
+\begin{equation}
+	\mathfrak{F} = \{d_k\}^{K-1}_{k=0}, \:\:\: d_k= \{ \hat{x}_s, \hat{x}_e
+\end{equation}
+
+Der relative Fehler $\delta d_k$ berechnet sich auf die gleiche Weise wie der absolute Fehler \ref{eq:absoluteErr}. Somit ergibt sich der Fehler $\delta d_k$  für ein Wertepaar $d_k$ aus
+
+\begin{align}
+	\delta \phi_k & = \angle \delta R_k = \angle R_e(\hat{R'_e})^\top,\\
+	\delta p_k &= ||p_e - \delta R_k \hat{p}'_e||^2.
+\end{align}
+
+Daraus ergibt sich eine Menge von Werten, jeweils einer pro Teilabschnitt. Die Menge wird formal beschrieben durch 
+
+\begin{align}
+	RE_{rot} \: &= \: \{\delta \phi_k\}^{K-1}_{k=0},\\
+	RE_{pos} \: &= \: \{\delta p_k\}^{K-1}_{k=0},\\
+\end{align}
+
+Die Abbildung dieser Mengen ist in den Boxplots zu sehen. Der mittlere Kasten besteht aus zwei Quartilen und dem Median. Der Median ist der Strich, die Quartile beinhalten sämtliche Schätzfehler. Die Antennen bzw Whiskers bilden das obere und untere Quartil.
+
+\newpage
+\section{Ergebnisse}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{vorzeigestrecke/default_01_trajectory_top.png}
+	\caption[Plot der Trajektorien Teststrecke 'Default 01']{Trajektorien Ground Truth und Schätzung durch Visuelle Odometrie der Teststrecke 'Default 01'}
+\end{figure}
+
+Es wurden insgesamt Daten für 25 Testfahrten erhoben. Der Datensatz einer Testfahrt besteht immer aus den Ground Truth Odometrie Daten, der durch RGB-D geschätzten Odometrie und der durch Stereo geschätzten Odometrie. Zugunsten der Übersichtlichkeit werden nicht alle Strecken und Daten grafisch aufbereitet. Stattdessen wurden Daten einzelner Strecken als Stichproben abgebildet um einen intuitiven Einblick in die Ergebnisse zu vermitteln. 
+
+	\begin{figure}[!ht]
+	\input{pictures/tiktz/streckenlaengen.tex}
+	\caption[Testfahrten Streckenlängen]{Streckenlängen aller 25 Testfahrten in m.}
+\end{figure}
+
+Die Datensätze Simulieren unterschiedliche Sichtverhältnisse. Es sei angemerkt das die Fahrzeuge im CARLA Simulator über keine eigenen Lichtquellen verfügen.
+
+\begin{figure}[!ht]
+	\begin{tabular}{lll}
+		1 & 	\includegraphics[width=.4\textwidth]{07_default.png} &
+		\includegraphics[width=.4\textwidth]{07_default03.png}\\
+		2 & 	\includegraphics[width=.4\textwidth]{07_hard_rain.png} &
+		\includegraphics[width=.4\textwidth]{07_rain_noon03.png}\\
+		3 & 	\includegraphics[width=.4\textwidth]{07_sunset.png} &
+		\includegraphics[width=.4\textwidth]{07_clear_sunset2.png}\\
+		4 & \includegraphics[width=.4\textwidth]{07_clear_night.png} &
+		\includegraphics[width=.4\textwidth]{07_clear_night03.png}\\
+		5 & 	\includegraphics[width=.4\textwidth]{07_wet_sunset.png} &
+		\includegraphics[width=.4\textwidth]{07_wet_sunset03.png}
+		\end{tabular}
+	\centering
+	\caption[Witterungsverhältnisse der Simulation in verschiedenen Datensätzen]{Witterungsverhältnisse der verschiedenen Datensätze: 1 Default, 2 hard rain, 3 clear sunset, 4 clear night, 5 wet sunset}
+	\label{fig:carlawetter}
+\end{figure}
+
+
+\newpage
+\begin{figure}[!ht]
+	\input{pictures/tiktz/ATE_pos_all_stereo.tex}
+	\input{pictures/tiktz/ATE_rot_all_stereo.tex}
+	\caption[Absolute Trajectory Error (ATE) für Stereokamera]{Absolute Trajectory Error (ATE) für Stereo VO der geschätzten Translation und des geschätzten Winkels in Grad für alle 25 Testfahrten.}
+	\input{pictures/tiktz/ATE_pos_all_rgbd.tex}
+	\input{pictures/tiktz/ATE_rot_all_rgbd.tex}
+	\caption[Absolute Trajectory Error (ATE) für RGB-D]{Absolute Trajectory Error (ATE) für RGB-D Visuelle Odometrie der geschätzten Translation und des geschätzten Winkels in Grad für alle 25 Testfahrten.}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=\textwidth]{auswertung/trans_rot/default_04_trans_rot_error.png}\hfill
+	\includegraphics[width=\textwidth]{auswertung/trans_rot/hard_rain_03_trans_rot_error.png}\hfill
+	\includegraphics[width=\textwidth]{auswertung/trans_rot/sunset_01_trans_rot_error.png}
+	\hfill
+	\includegraphics[width=\textwidth]{auswertung/trans_rot/clear_night_05_trans_rot_error.png}\hfill
+	\includegraphics[width=\textwidth]{auswertung/trans_rot/wet_sunrise_01_trans_rot_error.png}\hfill
+	\caption[Boxplots Absoluter Fehler von Streckenabschnitten]{Um den Trend in jedem Datensatz zu veranschaulichen wurden die Absoluten Fehler für je eine Strecke aus jedem Datensatz geplottet. Von oben nach unten: 1 Default, 2 hard rain, 3 clear sunset, 4 clear night, 5 wet sunset}
+\end{figure}
+
+\clearpage
+\newpage
+
+\begin{center}
+		\input{pictures/tiktz/fehlertabellen_MEDIAN.tex}	
+\end{center}
+\newpage
+\begin{center}
+		\input{pictures/tiktz/fehlertabellen_RMSE.tex}	
+\end{center}
+
+\newpage
+\clearpage
+\newpage
+
+\section{Diskussion}
+Die RMSE Tabellen zeigen die Standardabweichung für die Schätzfehler der beiden Visuellen Odometrie Systeme RGB-D und Stereo Kamera. Die Standardabweichung zeigt wie sehr die Schätzungen um den Mittelwert Streuen. Die Median Tabellen zeigen die gemittelten Fehlerwerte mit geringeren Bewertung für Ausrei{\ss}er.
+\newline 
+
+Es ist sofort ersichtlich, dass die implementierte visuelle Odometrie unbrauchbare Ergebnisse für Nachtfahrten liefert. Es wäre interessant zu sehen, in wie fern sich die Ergebnisse für Fahrten mit Frontscheinwerfern ändern. Da Stra{\ss}en, insbesondere Asphalt, eine Textur arme Oberflächentextur bieten, würden die Kamerabilder aus der RGB Kamera vermutlich dennoch nicht genug Merkmale beinhalten.   
+\newline 
+
+Der Schätzfehler mit Stereokamera streut stärker als für den RGB-D au{\ss}er für 'Clear Sunset' wo ein sehr niedriger Sonnenstand vorherrscht.  
+\newline
+
+In der Auswertung des Gesamtstreckenfehlers zeigt sich, dass der RGB-D Kameraaufbau insgesamt kleinere Schätzfehler hat. Mit weniger Streuung ist es auch das Robustere System.    
+\newline
+
+Keines der Systeme zeigte Auffälligkeiten bei Ein- und Ausfahrten des in der Karte integrierten Tunnel. Bei hohen Geschwindigkeiten $(> 80 km\/h)$ kam es vermehrt zum Verlust der Schätzung, vor allem auf Streckenabschnitten mit wenigen markanten Umgebungsmerkmalen.  
+\newline
+
+Insgesamt konnte gezeigt werden, dass eine Lokalisierung des Fahrzeugs alleine durch Visuelle Odmometrie erfolgreich durchgeführt werden konnte. Beide Systeme liefern i.d.R. bei Tageslicht weniger als 10 Grad Winkelfehler. Die Visuelle Odometrie mit RGB-D Kamera schafft in 17 von 25 Teststrecken einen einen Absoluten Streckenfehler von weniger als 5 Metern. 
+
+\section{Ausblick}
+Das System kann als Front-End für einen SLAM Algorithmus verwendet werden. Bei einigen Testfahrten hat sich die Odometrie von einer gro{\ss}en Fehlschätzung vor allem nie 'erholt', vor allem dann, wenn der Fehler zu Beginn auftrat. Durch SLAM könnten solche Verläufe stabilisiert werden und das gesamte Verfahren würde Robuster werden. 
+\newline
+
+Eine weitere, naheliegende Möglichkeit wäre eine Sensorfusion mit einer IMU. Sogenannte Visual Inertial Odometry zeigt in aktuellen Forschungsergebnissen mehrere Paper gute Ergebnisse für eine Fehlerkorrektur und damit eine Reduktion der Drift.

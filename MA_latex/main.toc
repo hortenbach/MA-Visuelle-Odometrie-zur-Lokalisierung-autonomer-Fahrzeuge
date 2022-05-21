@@ -1,0 +1,76 @@
+\babel@toc {ngerman}{}
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation - Forschungsprojekt CARS}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Ziel der Arbeit}{1}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Grundlagen}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Lokalisierungsverfahren}{2}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Globale Lokalisierung}{2}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Position Tracking}{2}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}3-D Strukturen und Kamerapose aus 2-D Bildern}{3}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Koordinatensysteme}{4}{subsection.2.2.1}%
+\contentsline {subsubsection}{Homogene Koordinaten}{4}{equation.2.2.2}%
+\contentsline {subsubsection}{Kameraprojektionen}{6}{equation.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.2}Korrespondenzanalyse}{6}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Verbinden von zwei Ansichten durch Epipolargeometrie}{7}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Sonderfall Stereo Vision}{8}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Structure From Motion - SfM}{9}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}Simultaneous Localization and Mapping - SLAM}{9}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.7}Verschiedene Ansätze für Visuelle Odometrie}{10}{subsection.2.2.7}%
+\contentsline {subsubsection}{Feature-based Algorithmen}{12}{equation.2.2.13}%
+\contentsline {subsubsection}{Appearance-based Algorithmen}{12}{equation.2.2.13}%
+\contentsline {subsubsection}{Lernende Verfahren}{12}{equation.2.2.13}%
+\contentsline {chapter}{\numberline {3}Extraktion von Bildmerkmalen}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Auffinden von Merkmalen}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Merkmale Beschreiben durch Nachbarschaftsoperationen}{13}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Algorithmen zum Auffinden von Interest-Operatoren}{14}{subsection.3.1.2}%
+\contentsline {subsubsection}{Moravec-Operator}{14}{subsection.3.1.2}%
+\contentsline {subsubsection}{Harris Corner Detektor}{14}{subsection.3.1.2}%
+\contentsline {subsubsection}{Shi-Tomasi Detektor (GFFT)}{16}{equation.3.1.12}%
+\contentsline {subsubsection}{FAST}{16}{equation.3.1.13}%
+\contentsline {section}{\numberline {3.2}Matching}{18}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Übereinstimmungen finden}{18}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Matching Ergebnisse Filtern}{19}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Stereo Matching}{19}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Semi Global Block Matching}{19}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Deskriptoren}{20}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Histogram Deskriptoren}{21}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Binäre Deskriptoren}{21}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}ORB - Oriented FAST and Rotated BRIEF}{22}{subsection.3.3.3}%
+\contentsline {chapter}{\numberline {4}Kamerasysteme}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Kamerasensoren}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}RGB Kamera mit CCD- oder CMOS-Sensoren}{24}{subsection.4.1.1}%
+\contentsline {subsubsection}{CCD Sensoren}{24}{subsection.4.1.1}%
+\contentsline {subsubsection}{CMOS Sensoren}{24}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Tiefenbildkameras auf Basis von Projektionen}{25}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Tiefenbildkameras auf Basis von Stereoskopie}{25}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Time-of-Flight Tiefenbild}{26}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Kamerakonfigurationen}{26}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Monokulare Kamerasysteme}{26}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Stereo Kamerasysteme}{27}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}RGB mit Tiefenbildkamera}{27}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Rektifizierung}{28}{subsection.4.2.4}%
+\contentsline {chapter}{\numberline {5}Systementwurf}{29}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Erzeugen von Sensoroutput}{29}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Kameradaten}{29}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Node für Kamerasynchronisation}{29}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Stereo Visuelle Odometrie Ablauf}{31}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Merkmalsdetektion}{31}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Matching von Merkmalen}{32}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Tiefeninformation}{34}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Bewegungsschätzung}{34}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Pose Update und Verlorene Odometrie}{35}{subsection.5.2.5}%
+\contentsline {chapter}{\numberline {6}Implementierung}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Simulationsumgebung}{37}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Simulator CARLA}{37}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}ROS2 Framework für Prozesskommunikation}{37}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Kameradaten}{38}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Transformationsbaum}{39}{subsection.6.1.4}%
+\contentsline {section}{\numberline {6.2}Bibliotheken}{40}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Computer Vision Bibliothek OpenCV}{40}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}V-SLAM Bibliothek RTAB-Map}{41}{subsection.6.2.2}%
+\contentsline {chapter}{\numberline {7}Ergebnisse der Lokalisierung}{42}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Methodik}{42}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Ergebnisse}{46}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Diskussion}{52}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Ausblick}{52}{section.7.4}%
+\contentsline {chapter}{Literatur- und Quellenverzeichnis}{53}{section.7.4}%

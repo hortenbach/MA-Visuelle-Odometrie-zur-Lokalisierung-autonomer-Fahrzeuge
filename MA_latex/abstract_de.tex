@@ -1,0 +1,23 @@
+%%
+%% Abstract
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Die Kurzfassung gibt  ein kurzes und prägnantes Bild der  gesamten Arbeit. Sie soll
+% den  Leser  neugierig  machen  und  klarmachen,  was  zu  erwarten  ist.  Erreichte
+% Ergebnisse werden kurz umrissen.
+
+\section*{Kurzfassung}
+In der vorliegenden Abschlussarbeit "Visuelle Odometrie zur Lokalisierung autonomer Fahrzeuge" wurde die gefahrene Trajektorie eines Fahrzeuges auf mehreren Teststrecken ausschlie{\ss}lich anhand von Kameradaten geschätzt. Die Testfahrten wurden zu unterschiedliche Licht- und Witterungsverhältnisse durchgeführt mit Streckenlängen bis zu 2 km. 
+\newline
+
+Ein Stereokamerasystem und ein RGB-D Kamerasystem wurden am Fahrzeug montiert und miteinander verglichen. Die Fahrzeugpose wurde für beide Kamerasysteme mit der selben merkmalsbasierten Visuellen Odometrie geschätzt. Projektive Geometrie und die Extraktion von Bildmerkmalen zählt daher zu den zentralen Themen der Arbeit. 
+\newline
+
+Als Testumgebung wurde der CARLA Simulator verwendet. Geschätzten Odometrie Daten werden in einem ROS2 Netzwerk veröffentlicht wodurch die Implementation hoch modular ist und problemlos in bestehende ROS2 basierte Systeme integriert werden kann. 
+\newline
+
+Insgesamt konnten Orientierung und Position mittels visueller Odometrie zuverlässig geschätzt werden, wobei das System mit den Daten der RGB-D Kamerasystem geringer Schätzfehler erzielte.  
+
+
+%% eof

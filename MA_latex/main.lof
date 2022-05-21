@@ -1,0 +1,43 @@
+\babel@toc {ngerman}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Abbildung von 3-D zu 2-D}}{3}{figure.caption.3}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Beziehung zwischen inhomogenen und homogenen Koordinaten}}{5}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Die Kameraprojektion}}{6}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Bildebenen mit Epipolarlinien}}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Parallele Epipolarlinien}}{8}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces SLAM Map aus CARLA Testfahrt}}{10}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Visuelle Odometrie Problemstellung}}{11}{figure.caption.12}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Harris Interest-Operator Detektor}}{15}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces GFTT Detektor Merkmalsfindung}}{16}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces FAST Detektor Speedtest}}{17}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Effekt der Fenstergö{\ss }e bei Disparitätenkarten}}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Histogram Deskriptor aus Gradienten}}{21}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Muster binärer Deskriptoren}}{21}{figure.caption.19}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Aufbau CCD vs CMOS}}{23}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 3 Transistor CMOS Schaltung}}{25}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Verschneite Stra{\ss }e}}{27}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Rektifikation der Stereobildebenen}}{28}{figure.caption.23}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Eingansdaten Bilder aus Stereoaufbau in CARLA Simulator}}{29}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Graph der ROS2 Topics}}{30}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Visuelle Odometrie Pipeline}}{31}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Merkmalsdetektion in einer CARLA Szene}}{32}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Brute Force Matching ohne Crosscheck}}{33}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Brute Force Matching mit Crosscheck}}{33}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Disparitätenkarte}}{34}{figure.caption.30}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces ROS2 Node Netzwerk}}{37}{figure.caption.31}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces CARLA Tiefenkarte}}{38}{figure.caption.32}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces ROS2 Transformationsbaum für Visuelle Odometrie}}{39}{figure.caption.33}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces OpenCV Bibliothek Download Statistik}}{40}{figure.caption.34}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces CARLA Simulator Karte Town03}}{43}{figure.caption.35}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Plot der Trajektorien Teststrecke 'Default 01'}}{46}{figure.caption.36}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Testfahrten Streckenlängen}}{46}{figure.caption.37}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Witterungsverhältnisse der Simulation in verschiedenen Datensätzen}}{47}{figure.caption.38}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Absolute Trajectory Error (ATE) für Stereokamera}}{48}{figure.caption.39}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Absolute Trajectory Error (ATE) für RGB-D}}{48}{figure.caption.39}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Boxplots Absoluter Fehler von Streckenabschnitten}}{49}{figure.caption.40}%

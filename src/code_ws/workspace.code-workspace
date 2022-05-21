@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../rtab_ws"
+		},
+		{
+			"path": "../rtabros_ws"
+		}
+	],
+	"settings": {}
+}
