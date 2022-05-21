@@ -1,5 +1,0 @@
-# Matritzenrechnung
-
-Beste Seite für Erklärung aller Matrix Operationen
-https://www.mathe-online.at/mathint/matr/i.html
-
