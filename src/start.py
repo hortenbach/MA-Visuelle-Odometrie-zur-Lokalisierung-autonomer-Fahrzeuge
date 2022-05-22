@@ -4,7 +4,7 @@ import time
 import os
 
 #CARLAPATH = "/home/hortenbach/carla/CARLA_0.9.12/CarlaUE4.sh"
-CARLAPATH = "/home/hortenbach/CarlaUE4.sh"
+CARLAPATH = "/path/to/carla//CarlaUE4.sh"
 
 def carla_server():
     os.system(CARLAPATH)
@@ -15,7 +15,7 @@ def rosbridge():
 
 def carlaspawn():
     time.sleep(20)
-    os.system("ros2 launch carla_spawn_objects carla_spawn_objects.launch.py objects_definition_file:=/home/hortenbach/workspace/ros2_ws/config/objects.json town:=Town03 timeout:=10")
+    os.system("ros2 launch carla_spawn_objects carla_spawn_objects.launch.py objects_definition_file:=/path/to/src/carla_vo/config/objects.json town:=Town03 timeout:=10")
 
 def manual():
     time.sleep(25)
