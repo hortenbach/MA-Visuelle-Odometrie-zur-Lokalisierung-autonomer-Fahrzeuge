@@ -1,2 +1,11 @@
 # MA-Visuelle-Odometrie-zur-Lokalisierung-autonomer-Fahrzeuge
-Abschlussarbeit zum Thema Visuelle Odometrie zur Lokalisierung autonomer Fahrzeuge mit CARLA und ROS2
+
+Visual odometry for localization of autonomous vehicles with CARLA Simulator and ROS2 Nodes. 
+
+Run 
+
+```
+$ git submodule init
+```
+
+to fetch submodules in /src folder.
